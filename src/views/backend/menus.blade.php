@@ -22,7 +22,7 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i> {{Lang::language()->name}} <b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li class="dropdown-header">Change language:</li>
+                <li class="dropdown-header">{{{ Lang::get('thor::backend.change_language') }}}:</li>
                 @foreach(Lang::getActiveLanguages() as $i => $lang)
                 <li @if($lang->code == Lang::code())class="active"@endif><a href="{{URL::langSwitch($lang->code)}}">{{$lang->name}}</a></li>
                 @endforeach
@@ -34,9 +34,9 @@
                 <i class="fa fa-user fa-fw"></i> {{Auth::user()->username}}  <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                <li><a href="{{Backend::url('users/'.Auth::user()->id)}}"><i class="fa fa-pencil-square-o fa-fw"></i> Account</a></li>
+                <li><a href="{{Backend::url('users/'.Auth::user()->id)}}"><i class="fa fa-pencil-square-o fa-fw"></i> {{{ Lang::get('thor::backend.account') }}}</a></li>
                 <li class="divider"></li>
-                <li><a href="{{Backend::url('logout')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                <li><a href="{{Backend::url('logout')}}"><i class="fa fa-sign-out fa-fw"></i> {{{ Lang::get('thor::backend.signout') }}}</a></li>
             </ul>
             <!-- /.dropdown-user -->
         </li>
